@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: oklch(76.8% 0.233 130.85);
+  --color-secondary: oklch(82.8% 0.111 230.318);
+  --font-display: "manrope", sans-serif;
+  --font-paaji: "Giest", sans-serif;
+}
+/* :root {
+  --primary-color: 
+}
+if you wanna use it 
+can use arbitary values 
+via-[var[--primary-color]]  
+
+using theme@ talwind it easier to acces 
+using via-primary jsut that simple
+*/
