@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-paaji: 690px;
+  --breakpoint-sakshi: 1500px;
+  /* --breakpoint-sm:  
+   --breakpoint-md:  
+    --breakpoint-lg:  
+     --breakpoint-xl:  
+      --breakpoint-2xl:   */
+}
