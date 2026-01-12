@@ -1,55 +1,66 @@
+"use client";
 export default function Home() {
+  const handleThemeChange = () => {
+    const currentTheme =  document.documentElement.classList.contains("dark")
+    ?"light"
+    :"dark";
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme-tailwind-playlist","currentTheme");
+  }
+  
   const icons = [
-    {
-      title: "Claude",
-      icon: <ClaudeLogo className="h-12 w-12" />,
-    },
-    {
-      title: "Copilot",
-      icon: <CopilotLogo className="h-12 w-12" />,
-    },
-    {
-      title: "OpenAI",
-      icon: <OpenAILogo className="h-12 w-12" />,
-    },
-    {
-      title: "Meta",
-      icon: <MetaLogo className="h-12 w-12" />,
-    },
-    {
-      title: "Gemini",
-      icon: <GeminiLogo className="h-12 w-12" />,
-    },
+    { title: "Claude", icon: <ClaudeLogo className="h-12 w-12" /> },
+    { title: "Copilot", icon: <CopilotLogo className="h-12 w-12" /> },
+    { title: "OpenAI", icon: <OpenAILogo className="h-12 w-12" /> },
+    { title: "Meta", icon: <MetaLogo className="h-12 w-12" /> },
+    { title: "Gemini", icon: <GeminiLogo className="h-12 w-12" /> },
   ];
 
   return (
     <div className="relative h-full w-full flex justify-center items-center">
       {/* CLIPPING CONTAINER */}
-      <div className="relative h-80 w-60 overflow-hidden rounded-2xl  border-neutral-400 border-4 ">
-        {/* CARD (NOW VISIBLE) */}
-        <div className="absolute inset-0  bg-neutral-200 shadow-2xl z-10 " />
-
+      {/* relative dubba hai or ap chahtehai ki iske bahar contian nhi jaye */}
+      <div className="relative h-80 w-60 overflow-hidden rounded-2xl dark:border-neutral-800 border-neutral-200 border-2 shadow-2xl dark:bg-neutral-900">
+        {/* CARD BACKGROUND */}
+        <div className="absolute inset-0  bg-neutral-200 z-10 mask-r-from-50% mask-l-from-50% mask-b-from-50% mask-t-from-50%" />
+        <Pattern />
         {/* ICONS */}
-        <div className="absolute inset-0 flex justify-center items-center gap-4 z-20 animate-me mask-r-from-50 mask-l-from-50">
+        <div className="absolute inset-0 flex justify-center items-center gap-4 z-20 animate-marquee mask-r-from-50% mask-l-from-50% dark:border-neutral-900">
           {icons.map((item) => (
             <div
               key={item.title}
-              className="size-12 rounded-full bg-neutral-300 flex items-center justify-center"
+              className="size-12 rounded-full bg-neutral-300 flex items-center justify-center "
             >
               {item.icon}
             </div>
           ))}
         </div>
+
+        {/* TEXT CONTENT ✅ FIXED */}
+        <div className="absolute bottom-4 left-0 right-0 z-30 px-4 text-center">
+          <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-50">
+            These LLMs are getting out of hand
+          </h2>
+          <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-50">
+            I swear to god there is always another AI dropped
+          </p>
+        </div>
       </div>
 
-      <Pattern />
+      <button
+      onClick={handleThemeChange}  className="absolute bottom-20 left-1/2 -translate-x-1/2 
+      px-4 py-2 rounded-2xl dark: bg-amber-300 bg-black text-white z-30 cursor-pointer"
+      > 
+        Click Me
+      </button>
     </div>
   );
 }
+
 const Pattern = () => {
   return (
     <div
-      className="absolute inset-0 z-0 rounded-lg m-auto
+      className="absolute inset-0 z-12 rounded-lg m-auto
       bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"
     ></div>
   );

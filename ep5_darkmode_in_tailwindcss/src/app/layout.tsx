@@ -25,8 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased [--pattern-fg:var(--color-neutral-900)]/15`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased [--pattern-fg:var(--color-neutral-900)]/2`}
       >
+        {/* varaible define krre hai with tailwind [] called arbitary stykes custom styles */}
         <main className="bg-background text-foreground h-screen">
           {children}
         </main>
