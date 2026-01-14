@@ -25,7 +25,7 @@ const Temp = () => {
          "text-black "
        )}> 
        Hover over the image below to see a smooth 3D transformation effect. The
-       card rotates and scales using CSS transforms and Tailwind's built-in
+       card rotates and scales using CSS transforms and Tailwins built-in
        classes .
      </p>
 
